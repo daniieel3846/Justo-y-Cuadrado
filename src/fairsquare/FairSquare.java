@@ -12,15 +12,25 @@ public class FairSquare {
 
  
     public static void main(String[] args) throws IOException {
-        int justo_Y_Cuadrado=0;
-        BufferedReader bf =new BufferedReader(new FileReader("entrada.txt"));
+        BufferedReader bf = new BufferedReader(new FileReader("entrada.txt"));
         int Firstline = Integer.parseInt(bf.readLine());
-        //for(int i=0;i<Firstline;i++){
-        String linea=bf.readLine();
-        String[] arr=linea.split(" ");
-        int A=Integer.parseInt(arr[0]);
-        int B=Integer.parseInt(arr[1]);
-        int n=121;
+        for(int i=0;i<Firstline;i++){
+            int justo_Y_Cuadrado = 0;
+            String linea = bf.readLine();
+            String[] arr = linea.split(" ");
+            int A = Integer.parseInt(arr[0]);
+            int B = Integer.parseInt(arr[1]);
+            Recorrido(A,B,justo_Y_Cuadrado);
+        }
+
+    }
+    public static void Recorrido(int A,int B,int justoC){
+        while(A<=B){
+            
+            A++;
+        }
+    }
+    public static void JustoYCuadrado(int n, int justoC) {
         if (Palindromo(String.valueOf(n))) {
             System.out.println("es palindromo");
             String resultado = String.valueOf(Math.sqrt(n));
@@ -37,41 +47,12 @@ public class FairSquare {
             if (ValidarRaizExacta(Numero)) {
                 System.out.println("Es cuadrado");
                 double raiz = Math.sqrt(n);
-                if(Palindromo(String.valueOf(Math.round(raiz)))){
+                if (Palindromo(String.valueOf(Math.round(raiz)))) {
                     System.out.println("El cuadrado es palindromo");
-                    justo_Y_Cuadrado++;
-                    
+                    justoC++;
                 }
-                
             }
-
-            
-            /*if(Palindromo(String.valueOf(raiz))){
-                
-            }*/
-
         }
-        
-        //System.out.println(posicionPunto);
-        
-        
-        //System.out.println(resultado);
-        /*double r=Math.sqrt(n);
-        if((r%2)!=0){
-            System.out.println("Resultado decimal No es Cuadrado");
-        }*/
-        /*Pattern P = Pattern.compile("^([.][0-9])$");//^[0-9]+([.][0-9]+)?$
-        Matcher M = P.matcher("5.0");
-        if(M.matches()){
-            System.out.println("tiene numeros decimales");
-        }*/
-        
-        //for(int h=posicionPunto+1;h<resultado.length();h++){
-            //System.out.println(resultado);
-            //Pattern P = Pattern.compile(resultado);
-       // }
-        //}
-      
     }
     public static boolean Palindromo(String n){
         System.out.println(n);
@@ -92,11 +73,7 @@ public class FairSquare {
         return false;
         
     }
-    public static void Recorrido(int A,int B){
-        while(A<=B){
-            A++;
-        }
-    }
+    
     public static boolean ValidarRaizExacta(int N){
         boolean b=true;
         if(N!=0){
@@ -105,4 +82,24 @@ public class FairSquare {
         return b;
     }
     
+    
+     //System.out.println(posicionPunto);
+        
+        
+        //System.out.println(resultado);
+        /*double r=Math.sqrt(n);
+        if((r%2)!=0){
+            System.out.println("Resultado decimal No es Cuadrado");
+        }*/
+        /*Pattern P = Pattern.compile("^([.][0-9])$");//^[0-9]+([.][0-9]+)?$
+        Matcher M = P.matcher("5.0");
+        if(M.matches()){
+            System.out.println("tiene numeros decimales");
+        }*/
+        
+        //for(int h=posicionPunto+1;h<resultado.length();h++){
+            //System.out.println(resultado);
+            //Pattern P = Pattern.compile(resultado);
+       // }
+        //}
 }
